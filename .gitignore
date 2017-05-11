@@ -20,6 +20,4 @@ node_modules
 public/libs
 
 config/db.js
-updateDb/data
-
-updateDB/virg/node_modules
+updateDB/data/
