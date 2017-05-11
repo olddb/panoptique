@@ -1,0 +1,88 @@
+<div ng-controller="D3TimelineController">
+
+    <div id="pourcentages">
+      <div class="pour" ng-class="{ active: depIsActive }">POUR <br><span>{{pourcentagePour}}%</span></div>
+      <div class="ligne"></div>
+      <div class="contre" ng-class="{ active: depIsActive }"><span>{{pourcentageContre}}%</span><br>CONTRE</div>
+      <!-- <div class="abstention">{{pourcentageAbstention}}% ABSTENTION</div> -->
+    </div>
+    
+      
+    <div class="filtres" ng-click="initFilters()">
+    
+
+      <div class="filtre" ng-if="filterTheme.nom && displayHoverTheme.nom">
+        Sur le thème <span style="color:{{displayHoverTheme.couleur}}">{{displayHoverTheme.nom}} X</span>
+      </div>
+      <div class="filtre" ng-if="(!filterTheme.nom && displayHoverTheme.nom) || (filterTheme.nom && !displayHoverTheme.nom && !displayHoverDep.nom)">
+        Sur le thème <span style="color:{{displayHoverTheme.couleur || filterTheme.couleur}}">{{displayHoverTheme.nom || filterTheme.nom}} X</span>
+      </div>
+
+
+      <div class="filtre" ng-if="filterDep.nom && displayHoverDep.nom">
+        Les lois votées par <span>{{displayHoverDep.nom}} ({{displayHoverDep.groupe}}) X</span>
+      </div>
+      <div class="filtre" ng-if="(!filterDep.nom && displayHoverDep.nom) || (filterDep.nom && !displayHoverDep.nom && !displayHoverTheme.nom)">
+        Les lois votées par <span>{{filterDep.nom || displayHoverDep.nom}} ({{filterDep.groupe || displayHoverDep.groupe}}) X</span>
+      </div>
+
+
+      <div class="filtre" ng-if="!filterDep.nom && !displayHoverDep.nom && !filterTheme.nom && !displayHoverTheme.nom">
+        Les lois votées <span>solennellement</span> entre <span>2012 et 2017</span>
+      </div>
+
+    </div>
+
+    <div id="timeline">
+    </div>
+
+
+
+    <!-- <div id="lawContainer">
+  		<div class='nomDeLoi' ng-if="nomDeLoi">{{ nomDeLoi | titreLoi }}</div>
+  	</div> -->
+
+
+    <!-- <div class="col-md-2 oneLaw" ng-repeat="l in lois | orderBy:'numScrutin'">
+      <p class="titreLoi" ng-mouseover="over(l)">
+        <a ng-href="/nicole?id={{l.numScrutin}}">
+          {{l.nomAlt}} (scrutin n° {{l.numScrutin}}) <br>
+          {{l.theme}}
+        </a>
+      </p>
+    </div> -->
+
+
+  <div class="themes">
+    <!-- <div ng-repeat="t in themes | orderBy:'nom'" class="theme">
+      <span style="color:{{t.color}}">{{t.nom}}</span>
+    </div> -->
+  </div>
+
+
+  <div id="rightPanel">
+    <div id="listHeader">
+      <span id="filterIt" ng-click="filterIt()">CLICKFILTER</span>
+      <span id="supp">500 pers.</span>
+      <span id="title">Tous les députés</span>
+      <form>
+        <input type="search" ng-model="filterText" placeholder="Filtrer"></input>
+      </form>
+      <div class="no-result" ng-class="{ active: hasNoResult }">Pas de résultat.</div>
+      <div class="no-result" ng-class="{ active: depIsLoading }">Chargement.</div>
+      <span id="counter"></span>
+      <span id="clear" class="hidden">
+        <svg>
+          <line x1="0" x2="100%" y1="0" y2="100%"></line>
+          <line x1="100%" x2="0%" y1="0" y2="100%"></line>
+        </svg>
+      </span>
+    </div>
+    <div class="deputes" ng-class="{ textFilterIsActive: filterText ? true : false }">
+      <!-- <div ng-repeat="d in deputes | orderBy:'etatCivil.ident.nom'" class="depute">
+        {{d.etatCivil.ident.prenom}} <span>{{d.etatCivil.ident.nom}}</span>
+      </div> -->
+    </div>
+  </div>
+
+</div>

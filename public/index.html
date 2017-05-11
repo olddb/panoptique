@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<base href="/">
+
+		<title>Assemble 42</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
+		<!-- JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+		<script src="libs/angular/angular.js"></script>
+		<script src="libs/angular-route/angular-route.js"></script>
+		<!-- <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script> -->
+		<!-- <script src="https://d3js.org/d3.v4.js"></script> -->
+		<script src="js/d3.v4.js"></script>
+		
+		<script src="js/d3.tip.js"></script>
+
+		
+
+
+		<!-- ANGULAR CUSTOM -->
+		<script src="js/controllers/MainCtrl.js"></script>
+		<script src="js/controllers/GroupeCtrl.js"></script>
+		<script src="js/controllers/NicoleCtrl.js"></script>
+		<script src="js/controllers/TimelineCtrl.js"></script>
+		<script src="js/controllers/D3TimelineCtrl.js"></script>
+		<script src="js/controllers/D3GroupeHemiCtrl.js"></script>
+
+		<script src="/libs/angular-animate/angular-animate.js"></script>
+
+
+		<script src="js/services/LoiService.js"></script>
+		<script src="js/services/VoteService.js"></script>
+		<script src="js/services/HemiService.js"></script>
+		<script src="js/services/DeputeService.js"></script>
+		<script src="js/services/OrgAssService.js"></script>
+
+		<script src="js/filter.js"></script>
+		<script src="js/appDirectives.js"></script>
+		<script src="js/appRoutes.js"></script>
+		<script src="js/app.js"></script>
+	</head>
+
+	<body ng-app="sampleApp">
+			<div class="logo">
+				<a href="/">panoptique</a>
+			</div>
+		
+			<div ng-view id="mainContainer" class="myanimated" ng-class="ui" ng-controller="MainController">
+			</div>
+	</body>
+</html>

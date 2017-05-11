@@ -1,0 +1,33 @@
+<div class="nicDirectiveContainer">
+	<link rel="stylesheet" href="css/nicole.css"> <!-- custom styles -->
+
+
+
+	<div id="nicoleContainer">
+		<p>NICOLE CONTAINER</p></br>
+		<div class="nicoleGraphicsContainer">
+
+			<h1 class="nicoleTitre">{{vote.titre}}</h1></br>
+			<h2 class="libelle">{{vote.sort.libelle}}</h2>
+			</br></br></br></br>
+
+			<div class="voteContainer">
+				<div ng-repeat="n in newFormatVote">
+
+					<div class="orgName">
+						<!-- <a ng-href="/groupe?t=g&id={{n.id}}"> -->
+							{{n.nom}}
+						<!-- </a> -->
+					</div>
+					<div class="orgVote">{{n.vote}}</div>
+
+				</div>
+			</div></br>
+
+		</div>
+
+		<p class="temporaireLien">
+			<a href="/">Timeline</a>
+		</p>
+	</div>
+</div>

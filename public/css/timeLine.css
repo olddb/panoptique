@@ -1,0 +1,561 @@
+#lawContainer {
+}
+
+.timeDirectiveContainer {
+	background-color: #D9DADB;
+}
+
+.oneLaw {
+	margin-top: 6vh;
+	transform: translateY(-50%);
+	padding: 35px 10px 15px 30px;
+}
+#currentTitre {
+	font-size: 20px;
+    position: fixed;
+    text-align: center;
+}
+
+.nomDeLoi {
+	width: 100%;
+	position: absolute;
+	top: 30px;
+	text-align: center;
+}
+
+.blueContainer {
+	position: absolute;
+	top: 70%;
+	left: 70%;
+	z-index: 999;
+
+}
+#blue {
+	transition: all 1s ease;
+}
+
+/*
+.animated.ng-enter, .animated.ng-leave {
+	-webkit-animation-duration : 1s;
+	-webkit-animation-fill-mode : both;
+}
+.roll.ng-enter { -webkit-animation-name : rollIn; }
+.roll.ng-leave { -webkit-animation-name : rollOut; }
+.fade.ng-enter { -webkit-animation-name : fadeIn; }
+.fade.ng-leave { -webkit-animation-name : fadeOut; }
+
+.customFade {
+	opacity: 1;
+	transition: opacity 1s ease;
+}
+.customFade.ng-hide {
+	opacity: 0;
+}*/
+
+
+
+.themes{
+/*    position: fixed;
+    left: 10px;
+    bottom: 0;
+    overflow: auto;
+    text-align: left;*/
+
+
+    /*position: fixed;
+    left: 140px;
+    bottom: -120px;
+    overflow: auto;
+    text-align: left;
+    width: 120px;
+    transform: rotate(-90deg);
+    font-size: 8px;*/
+
+
+    position: fixed;
+    left: 10%;
+    bottom: 14px;
+    overflow: auto;
+    text-align: left;
+    /* width: 120px; */
+    /* transform: rotate(-90deg); */
+    font-size: 10px;
+    max-width: 580px;
+    text-align: center;
+}
+
+.theme{
+    color: white;
+    padding: 6px;
+    /* margin-top: 2px; */
+    cursor: pointer;
+    transition: 0.4s padding;
+    display: inline-block;
+    border: 1px solid black;
+    /*margin: 2px;*/
+}
+.theme span{
+	display: none;
+}
+.theme.active span{
+	display: inherit;
+}
+.theme::first-letter{
+	text-transform: uppercase;
+}
+.theme.active,
+.theme:hover{
+	background: white;
+	/*font-weight: bold;*/
+/*	background-color: inherit;
+	color: white;*/
+	/*padding-left: 12px;*/
+	/*transform: translateX(12px);*/
+}
+
+
+
+#rightPanel{
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    width: 230px;
+}
+#listHeader{
+	position: fixed;
+	right: 0;
+	/*top: 0;*/
+	top: 100px;
+	width: 210px;
+	height: 51px;
+	padding-top: 84px;
+	margin: 0;
+	text-align: center;
+	font-weight: normal;
+	font-size: 14px;
+	color: #eee;
+	border: 1px solid white;
+	/*background: rgba(23, 23, 23, .85);*/
+	z-index: 1;
+	/*border-bottom: 1px solid #171717;*/
+	/*box-shadow: 0 0 0px #171717;*/
+	-webkit-transition: border-bottom .3s, box-shadow .3s;
+	transition: border-bottom .3s, box-shadow .3s;
+}
+
+
+#listHeader #filterIt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0px;
+    font-size: 12px;
+    color: white;
+}
+#listHeader #supp {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 36px;
+    font-size: 12px;
+    color: #9a9a9a;
+}
+#listHeader #title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 18px;
+    padding: 0 10px;
+   }
+#listHeader #counter{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    font-size: 12px;
+    color: #9a9a9a;
+}
+#listHeader form{
+    position: absolute;
+    bottom: 6px;
+    left: 5px;
+}
+#listHeader .no-result{
+	display: none;
+	
+	font-size: 18px;
+    text-align: left;
+    padding-top: 6px;
+    color: white;
+}
+#listHeader .no-result.active{
+	display: block;
+}
+
+
+#listHeader input{
+    font-size: 14px;
+    background: none;
+    border: none;
+    text-align: center;
+    color: white;
+    border: 1px solid white;
+    width: 200px;
+}
+
+
+#listHeader input[type="search"]::-webkit-search-cancel-button{ 
+   -webkit-appearance: searchfield-cancel-button;
+   cursor: pointer;
+}
+
+
+
+#listHeader input:focus{
+	outline: 0;
+	box-shadow: rgba(0,0,0,0) 0 0px 0px;
+}            
+
+
+#listHeader input::-webkit-input-placeholder { /* WebKit browsers */
+	color:  white;
+	font-family: 'Open Sans', monospace;
+}
+#listHeader input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:    white;
+	opacity:  1;
+	font-family: 'Open Sans', monospace;
+}
+#listHeader input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color:    white;
+	opacity:  1;
+	font-family: 'Open Sans', monospace;
+}
+#listHeader input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color:    white;
+	font-family: 'Open Sans', monospace;
+}
+
+
+
+#listHeader #clear{
+    position: absolute;
+    right: 0;
+    bottom: 31px;
+    opacity: .3;
+}
+
+.deputes{
+    top: 0;
+    margin-top: 88px;
+    /*height: 80vh;*/
+    height: calc(80vh - 88px);
+    /* overflow: auto; */
+    text-align: right;
+    /* position: relative; */
+    overflow: auto;
+    padding-right: 12px;
+}
+.deputes::after{
+    content: 'Scroll pour voir plus';
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    right: 10px;
+    text-align: center;
+    height: 18px;
+    background: rgba(255, 255, 255, 1);
+	/*left: 4px;
+	display: none;*/
+}
+
+
+.deputes.textFilterIsActive .depute.depute-isFirst .depute-nom,
+.deputes.textFilterIsActive .depute.depute-isFirst .depute-parti{
+	color: black;
+}
+.depute {
+	color: white;
+	cursor: pointer;
+	position: relative;
+	text-align: left;
+	transition: 0.2s all;
+}
+.depute-hidden {
+	display: none;
+}
+
+
+.depute span{
+	font-weight: bold;
+}
+
+
+.depute.active .depute-nom,
+.depute.active .depute-parti,
+.depute:hover .depute-nom,
+.depute:hover .depute-parti{
+	color: black;
+	/*background: black;*/
+	/*position: relative;*/
+	/*background: #D9DADB;*/
+}
+
+.depute.active .depute-nom::before{
+	display: block;
+}
+.depute-nom{
+	padding-left: 20px;
+}
+
+.depute-nom::before{
+	content: 'X';
+	position: absolute;
+	left: 4px;
+	display: none;
+}
+.depute-parti{
+	position: absolute;
+	top: 0;
+	right: 0;	
+    /*background: black;*/
+    padding-left: 5px;
+    background: #D9DADB;
+}
+
+
+  g.chartDate path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.lienLoi rect {
+  cursor: pointer;
+  transition: 0.2s transform, 0.2s height, 0.1s fill;
+}
+
+.lienLoi rect:hover {
+  /*fill: orangered ;*/
+  transform: translateY(-166px)scaleY(2);
+}
+
+
+
+.lienLoi rect.active {	
+  //fill: blue;
+  /*transform: translateY(-24px);*/
+  transform: translateY(-166px)scaleY(2);
+}
+/*.lienLoi rect.hover {	
+  //fill: blue;
+  transform: translateY(-24px);
+  transform: translateY(-152px)scaleY(1.6);
+}*/
+
+rect.pour {	
+  //fill: blue;
+  transform: translateY(-83px);
+  /*fill:url(#diagonalStripes);*/
+}
+rect.pour:hover,
+rect.contre:hover
+{
+	transform: translateY(-166px)scaleY(2);
+}
+
+
+rect.nonvotants
+{
+  fill:url(#diagonalStripes);
+  /*fill: black; */
+
+  stroke: white;
+  stroke-opacity:0.8;
+}
+rect.abstention {
+	fill: black;
+}
+.lienLoi rect.nonvotants:hover,
+.lienLoi rect.abstention:hover {
+  /*fill: orangered ;*/
+  height: 100%;
+  transform: translateY(-83px);
+  /*transform: translateY(-166px)scaleY(2);*/
+}
+
+
+rect.contre {
+  //fill: blue;
+  transform: translateY(84px);
+}
+rect.none {
+  fill: transparent;
+  /*transform: translateY(-166px)scaleY(2);*/
+	
+  /*stroke: black;
+  stroke-opacity:0.4;*/
+
+  stroke: white;
+  stroke-opacity:0.8;
+}
+
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+
+#timeline{
+	/*text-align: center;*/
+	position: fixed;
+	width: 100%;
+	top: 50%;
+    transform: translateY(-50%);
+}
+#timeline svg{
+	overflow: visible;
+	width: 100%;
+	max-width: calc(100% - 240px);
+}
+#pourcentages{
+	/*display: none;*/
+    position: fixed;
+    font-size: 16px;
+    width: 100%;
+    max-width: calc(100% - 240px);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 10;
+    pointer-events: none;
+}
+#pourcentages .pour.active,
+#pourcentages .contre.active{
+	/*display: block;*/
+	opacity: 1;
+	
+}
+#pourcentages span{
+	font-size: 36px;
+}
+#pourcentages .ligne{
+	border-bottom: 1px solid white;
+	height: 1px;
+}
+#pourcentages .pour{
+    padding-left: 60px;
+    opacity: 0;
+    transition: 0.2s all;
+/*	position: fixed;
+	top: 0;
+	font-size: 36px;
+	color: green;
+	width: 100%;*/
+}
+#pourcentages .contre{
+	padding-left: 60px;
+	opacity: 0;
+	transition: 0.2s all;
+/*	position: fixed;
+	bottom: 0;
+	font-size: 36px;
+	color: red;
+	width: 100%;*/
+}
+
+.filtres{
+	font-size: 20px;
+    position: fixed;
+    top: 60px;
+    left: 30px;
+    z-index: 1000;
+    cursor: pointer;
+    /* padding-left: 20px; */
+    /* padding-top: 30px; */
+    color: white;
+}
+.filtre{
+	/*height: 60px;*/
+	color: white;
+}
+.filtre span{
+	color: black;
+}
+
+.d3-tip{
+	/*top: 95px!important;*/	
+
+	top: initial!important;
+    bottom: calc(50% + 178px);
+
+    font-weight: normal;
+    line-height: 20px;
+    padding: 10px;
+    /*background: rgba(0, 0, 0, 0.6);*/
+    background: rgba(255, 255, 255, 0.6);
+    /* color: #fff; */
+    /* border: 1px solid white; */
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+}
+.d3-tip::after{
+    color: rgba(255, 255, 255, 0.6);
+}
+.d3-tip .tip-theme{
+	font-size: 22px;
+}
+.d3-tip .tip-nom{
+	color: black;
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+.d3-tip .tip-nom::first-letter{
+	text-transform: uppercase;
+}
+.d3-tip .tip-position{
+    color: white;
+    background-color: rgba(0,0,0,0.8);
+    padding: 1px 5px 2px;
+    font-size: 10px;
+}

@@ -1,0 +1,309 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+	RESET CSS
+	http://meyerweb.com/eric/tools/css/reset/
+	v2.0 | 20110126
+   	License: none (public domain)
+*/
+/*/////////////////////////////////////////////////////////////////////////*/
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.fadeIn {
+/* make things invisible upon start */
+	opacity:0;
+/* call our keyframe named fadeIn, use animattion
+ease-in and repeat it only 1 time */
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+/* this makes sure that after animation is done we
+remain at the last keyframe value (opacity: 1)*/
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	animation-duration:1s;
+}
+.fadeInSpeed {
+/* make things invisible upon start */
+	opacity:0;
+/* call our keyframe named fadeIn, use animattion
+ease-in and repeat it only 1 time */
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+/* this makes sure that after animation is done we
+remain at the last keyframe value (opacity: 1)*/
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	-webkit-animation-duration:0.3s;
+	-moz-animation-duration:0.3s;
+	animation-duration:0.3s;
+}
+
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+.fadeOut {
+	opacity:1;
+	-webkit-animation:fadeOut ease-in 1;
+	-moz-animation:fadeOut ease-in 1;
+	animation:fadeOut ease-in 1;
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	animation-duration:1s;
+}
+.fadeOutSpeed {
+	opacity:1;
+	-webkit-animation:fadeOut ease-in 1;
+	-moz-animation:fadeOut ease-in 1;
+	animation:fadeOut ease-in 1;
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	-webkit-animation-duration:0.3s;
+	-moz-animation-duration:0.3s;
+	animation-duration:0.3s;
+}
+/*/////////////////////////////////////////////////////////////////////////*/
+
+@keyframes slidedown {
+  from {top: 0;position:fixed;}
+  to {top:	-100vh;position:fixed;}
+}
+@keyframes slideup {
+  from {top: 100vh;position:fixed;}
+  to {top: 0;position:fixed;}
+}
+.myanimated.ng-enter, .myanimated.ng-leave {
+	-webkit-animation-duration : 1s;
+	-webkit-animation-fill-mode : both;
+}
+.myUp.ng-enter { -webkit-animation-name : slideup; }
+.myUp.ng-leave { -webkit-animation-name : slidedown; }
+.sleep {-webkit-animation-duration : 0s !important; }
+
+/*.myDown.ng-enter { -webkit-animation-name : slidedown; }
+.myDown.ng-leave { -webkit-animation-name : slideup; }*/
+
+
+
+
+
+
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-Light.eot');
+	src: url('font/open-sans/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-Light.woff') format('woff'),
+		url('font/open-sans/OpenSans-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-Extrabold.eot');
+	src: url('font/open-sans/OpenSans-Extrabold.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-Extrabold.woff') format('woff'),
+		url('font/open-sans/OpenSans-Extrabold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-ExtraboldItalic.eot');
+	src: url('font/open-sans/OpenSans-ExtraboldItalic.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-ExtraboldItalic.woff') format('woff'),
+		url('font/open-sans/OpenSans-ExtraboldItalic.ttf') format('truetype');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans.eot');
+	src: url('font/open-sans/OpenSans.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans.woff') format('woff'),
+		url('font/open-sans/OpenSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-Semibold.eot');
+	src: url('font/open-sans/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-Semibold.woff') format('woff'),
+		url('font/open-sans/OpenSans-Semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-Bold.eot');
+	src: url('font/open-sans/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-Bold.woff') format('woff'),
+		url('font/open-sans/OpenSans-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-Italic.eot');
+	src: url('font/open-sans/OpenSans-Italic.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-Italic.woff') format('woff'),
+		url('font/open-sans/OpenSans-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-BoldItalic.eot');
+	src: url('font/open-sans/OpenSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-BoldItalic.woff') format('woff'),
+		url('font/open-sans/OpenSans-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans-SemiboldItalic.eot');
+	src: url('font/open-sans/OpenSans-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans-SemiboldItalic.woff') format('woff'),
+		url('font/open-sans/OpenSans-SemiboldItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSansLight-Italic.eot');
+	src: url('font/open-sans/OpenSansLight-Italic.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSansLight-Italic.woff') format('woff'),
+		url('font/open-sans/OpenSansLight-Italic.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/open-sans/OpenSans_1.eot');
+	src: url('font/open-sans/OpenSans_1.eot?#iefix') format('embedded-opentype'),
+		url('font/open-sans/OpenSans_1.woff') format('woff'),
+		url('font/open-sans/OpenSans_1.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+body, html, #mainContainer {
+	height : 100%;
+	font-family: 'Open Sans';
+}
+
+.navbar {
+	text-align: center;
+}
+.titreLoi {
+	font-size: 15px;
+}
+
+.logo{
+	position: fixed;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.nicDirectiveContainer, .timeDirectiveContainer, .groupeDirectiveContainer {
+	width: 100vw;
+	height: 100vh;
+}
+
+.animateRotation {
+}
+
+
+
+#mainContainer {
+	/*display: none!important;*/
+}
+
+/* faire propre plus tard*/
+body{ 
+	background-color: #D9DADB;
+}
+
+
+.temporaireLien{
+	width: 100%;
+	position: absolute;
+	bottom: 15px;
+	text-align: center;
+}

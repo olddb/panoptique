@@ -1,0 +1,48 @@
+<div class="groupeDirectiveContainer">
+	<link rel="stylesheet" href="css/groupe.css">
+
+	<!-- <d3-groupe-hemi></d3-groupe-hemi> -->
+
+	<div id="groupeContainer">
+
+
+		<p class="titreGroupe">
+			{{ leTitre }}
+			<!-- id = {{id}} ; type = {{type}} -->
+		</p>
+
+		<div class="centerGroup">
+			<div class="centerGroupContainer">
+
+
+
+
+				<div class="composition">
+					<p class="compoSousTitre">
+						Composition
+					</p>
+					<div class="d3CompoHemi">
+						<d3-groupe-hemi ng-if="hemi" hemi="hemi"></d3-groupe-hemi>
+					</div>
+				</div>
+
+
+
+				<div class="comparaison">
+					<p class="compaSousTitre" ng-click="bjr()">
+						Comparaison
+					</p>
+					<div class="d3CompoHemi">
+						<!-- <img src="http://placeimg.com/700/600/arch" /> -->
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+
+	</div>
+
+</div>
