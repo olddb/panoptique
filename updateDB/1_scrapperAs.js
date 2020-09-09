@@ -14,33 +14,28 @@ var count         = 0;
 function saveLoiAndScrutin (loi, scrutin) {
   if (loi.nom === '') { return; }
   LoiScrap.update({"numScrutin" : loi.numScrutin}, loi, {upsert : true}, function(err, post){
-    if (err) {console.log('\x1b[31m[Loi    Fail]' ,'\x1b[0m' + ' ' + loi.nom + err);}
-    else {    console.log('\x1b[32m[Loi Updated]' ,'\x1b[0m' + ' ' + loi.nom);}
+    if (err) { console.log('\x1b[31m[Loi    Fail]' ,'\x1b[0m' + ' ' + loi.nom + err); }
+    else { console.log('\x1b[32m[Loi Updated]' ,'\x1b[0m' + ' ' + loi.nom); }
   });
   ScrutinScrap.update({"numScrutin" : scrutin.numScrutin}, scrutin, {upsert : true}, function(err, post){
-    if (err) {console.log('\x1b[31m[Scr    Fail]' ,'\x1b[0m' + ' n°' + scrutin.numScrutin + ' -' + scrutin.nomDeLaLoi + err);}
-    else {    console.log('\x1b[32m[Scr Updated]' ,'\x1b[0m' + ' n°' + scrutin.numScrutin + ' -' + scrutin.nomDeLaLoi);}
+    if (err) { console.log('\x1b[31m[Scr    Fail]' ,'\x1b[0m' + ' n°' + scrutin.numScrutin + ' -' + scrutin.nomDeLaLoi + err); }
+    else { console.log('\x1b[32m[Scr Updated]' ,'\x1b[0m' + ' n°' + scrutin.numScrutin + ' -' + scrutin.nomDeLaLoi); }
   });
 }
 
-// http://www.assemblee-nationale.fr/dyn/15/dossiers/nouveau_pacte_ferroviaire
-// http://www.assemblee-nationale.fr/dyn/15/dossiers/transformation_fonction_publique
-// http://www.assemblee-nationale.fr/dyn/15/dossiers/loi_programmation_hopital_public_ehpad
-// http://www.assemblee-nationale.fr/dyn/15/dossiers/reonnaissance_assemblee_nationale_soignants_victimes_covid-19
-// http://www.assemblee-nationale.fr/dyn/15/dossiers/traite_cooperation_integration_franco-allemandes
-
 function createInfosLoi (link_dossier, cb) {
   var infos = {};
-  scrap({url: link_dossier, encoding: 'latin1'}, function (err, $) {
+  scrap({url: link_dossier, encoding: 'utf-8'}, function (err, $) {
     if (err) {console.log('err scrap link_dossier + ' + err);}
     infos.lienLegifrance = link_dossier;
     infos.nom = $('.titre-bandeau-bleu > h1').text();
-    // console.log('createInfosLoi -> infos', infos);
+
     // var nomAlt = $('font[face="ARIAL"][size="3"]').html().trim();
     // infos.nomAlt = nomAlt.replace(/(\r\n|\n|\r)/gm,'');
     // var theme = infos.nomAlt.match(/(.*?):/g);
     // infos.theme = theme ? theme[0].replace(':','').trim() : '';
     // infos.nomAlt = infos.nomAlt.replace(infos.theme,'').replace(':','').trim();
+
     cb(infos);
   });
 }
@@ -59,7 +54,7 @@ function createVentilation (link_analyse, cb) {
   var vote = [];
   var url = link_analyse;
 
-  scrap(url, function (err, $) {
+  scrap({url: url, encoding: 'utf-8'}, function (err, $) {
     if (err) {console.log('err scrap link_analyse + ' + err); return; }
     var allGroup = [];
     var countDepute = 0;
@@ -130,13 +125,19 @@ function addOneToTab (x) {
     });
   });
 };
-scrap('http://www2.assemblee-nationale.fr/scrutins/liste/(legislature)/15/(type)/SSO/(idDossier)/TOUS', function(err, $) {
+scrap({
+    url: 'http://www2.assemblee-nationale.fr/scrutins/liste/(legislature)/15/(type)/SSO/(idDossier)/TOUS',
+    encoding: 'utf-8'
+  }, function(err, $) {
   count += $('#listeScrutins :not(thead) tr').length;
   $('#listeScrutins :not(thead) tr').each(function (index) {
     addOneToTab($(this));
   });
 });
-scrap('http://www2.assemblee-nationale.fr/scrutins/liste/(offset)/100/(legislature)/15/(type)/SSO/(idDossier)/TOUS', function(err, $) {
+scrap({
+  url: 'http://www2.assemblee-nationale.fr/scrutins/liste/(offset)/100/(legislature)/15/(type)/SSO/(idDossier)/TOUS',
+  encoding: 'utf-8'
+  }, function(err, $) {
   count += $('#listeScrutins :not(thead) tr').length;
   $('#listeScrutins :not(thead) tr').each(function (index) {
     addOneToTab($(this));
