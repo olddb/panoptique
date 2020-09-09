@@ -20,4 +20,8 @@ node_modules
 public/libs
 
 config/db.js
-updateDB/data/
+data/
+bower_components/
+
+yarn.lock
+package-lock.json

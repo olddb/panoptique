@@ -123,13 +123,13 @@ function addOneToTab (x) {
     });
   });
 };
-scrap('http://www2.assemblee-nationale.fr/scrutins/liste/(legislature)/14/(type)/SSO/(idDossier)/TOUS', function(err, $) {
+scrap('http://www2.assemblee-nationale.fr/scrutins/liste/(legislature)/15/(type)/SSO/(idDossier)/TOUS', function(err, $) {
   count += $('#listeScrutins :not(thead) tr').length;
   $('#listeScrutins :not(thead) tr').each(function (index) {
     addOneToTab($(this));
   });
 });
-scrap('http://www2.assemblee-nationale.fr/scrutins/liste/(offset)/100/(legislature)/14/(type)/SSO/(idDossier)/TOUS', function(err, $) {
+scrap('http://www2.assemblee-nationale.fr/scrutins/liste/(offset)/100/(legislature)/15/(type)/SSO/(idDossier)/TOUS', function(err, $) {
   count += $('#listeScrutins :not(thead) tr').length;
   $('#listeScrutins :not(thead) tr').each(function (index) {
     addOneToTab($(this));

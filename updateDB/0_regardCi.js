@@ -1,9 +1,9 @@
 "use strict"
 const fs 								= require('fs');
-const http 							= require('http');
+const https 							= require('https');
 const request 					= require('request');
 const removeDiacritics 	= require('diacritics').remove;
-const dbConf						= require('../config/db');
+const dbConf						= require('../config/db.model');
 var mongoose 						= require('mongoose');
 var Depute 							= require('./deputeReg.model.js');
 var db				 					= mongoose.connect(dbConf.url);
@@ -11,7 +11,7 @@ var db				 					= mongoose.connect(dbConf.url);
 // ================================================
 // First data Set
 var deputeFileName 				= './data/deputes' + Date.now() + '.json';
-var deputesUrl 						= 'http://www.nosdeputes.fr/deputes/json';
+var deputesUrl 						= 'https://www.nosdeputes.fr/deputes/json';
 
 function createDate (s) {
 	if (!s) { return null; }
@@ -55,7 +55,7 @@ function readAndParseDepute () {
 // ================================================
 // Second data Set
 var deputesEnCoursFileName 	= './data/deputesEnCours' + Date.now() + '.json';
-var deputesEnCoursUrl 			= 'http://www.nosdeputes.fr/deputes/enmandat/json';
+var deputesEnCoursUrl 			= 'https://www.nosdeputes.fr/deputes/enmandat/json';
 
 function createHemiCarto (data) {
 	Depute.remove({"en_cours" : 0});
@@ -129,7 +129,7 @@ function updateOneDepute (oneDeputeFilePath) {
 // ================================================
 // Fourth Data Set
 var depSynFileName	= './data/deputeFileName' + Date.now() + '.json';
-var deputeSyn		= 'http://www.nosdeputes.fr/synthese/data/json';
+var deputeSyn		= 'https://www.nosdeputes.fr/synthese/data/json';
 
 function readAndParseSyn () {
 	fs.readFile(depSynFileName, 'utf-8', function (err, data) {
@@ -167,7 +167,7 @@ function updateSyn (data) {
 var download = function(url, dest, cb, opt) {
 	var file = fs.createWriteStream(dest);
 
-	var request = http.get(url, function(response) {
+	var request = https.get(url, function(response) {
 		response.pipe(file);
 		file.on('finish', function() {
 			file.close(cb(opt));
