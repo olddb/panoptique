@@ -1,6 +1,6 @@
 const scrap       = require('scrap');
 const mongoose    = require('mongoose');
-const dbConf			= require('../config/db');
+const dbConf			= require('../config/db.model');
 var LoiScrap      = require('./loiScrap.model.js');
 var ScrutinScrap  = require('./scrutinScrap.model.js');
 var DeputeScrap   = require('./deputeScrap.model.js');
@@ -23,17 +23,24 @@ function saveLoiAndScrutin (loi, scrutin) {
   });
 }
 
+// http://www.assemblee-nationale.fr/dyn/15/dossiers/nouveau_pacte_ferroviaire
+// http://www.assemblee-nationale.fr/dyn/15/dossiers/transformation_fonction_publique
+// http://www.assemblee-nationale.fr/dyn/15/dossiers/loi_programmation_hopital_public_ehpad
+// http://www.assemblee-nationale.fr/dyn/15/dossiers/reonnaissance_assemblee_nationale_soignants_victimes_covid-19
+// http://www.assemblee-nationale.fr/dyn/15/dossiers/traite_cooperation_integration_franco-allemandes
+
 function createInfosLoi (link_dossier, cb) {
   var infos = {};
   scrap({url: link_dossier, encoding: 'latin1'}, function (err, $) {
     if (err) {console.log('err scrap link_dossier + ' + err);}
-    infos.lienLegifrance = $('meta[name="LIEN_LOI_PROMULGUEE"]').attr("content");
-    infos.nom = $('meta[name="LOI_PROMULGUEE"]').attr("content");
-    var nomAlt = $('font[face="ARIAL"][size="3"]').html().trim();
-    infos.nomAlt = nomAlt.replace(/(\r\n|\n|\r)/gm,'');
-    var theme = infos.nomAlt.match(/(.*?):/g);
-    infos.theme = theme ? theme[0].replace(':','').trim() : '';
-    infos.nomAlt = infos.nomAlt.replace(infos.theme,'').replace(':','').trim();
+    infos.lienLegifrance = link_dossier;
+    infos.nom = $('.titre-bandeau-bleu > h1').text();
+    // console.log('createInfosLoi -> infos', infos);
+    // var nomAlt = $('font[face="ARIAL"][size="3"]').html().trim();
+    // infos.nomAlt = nomAlt.replace(/(\r\n|\n|\r)/gm,'');
+    // var theme = infos.nomAlt.match(/(.*?):/g);
+    // infos.theme = theme ? theme[0].replace(':','').trim() : '';
+    // infos.nomAlt = infos.nomAlt.replace(infos.theme,'').replace(':','').trim();
     cb(infos);
   });
 }
@@ -115,10 +122,10 @@ function addOneToTab (x) {
     createInfosLoi(link_dossier, function(infos){
       loi.nom             = infos.nom;
       loi.lienLegifrance  = infos.lienLegifrance;
-      loi.theme           = infos.theme;
-      loi.nomAlt          = infos.nomAlt;
       scrutin.nomDeLaLoi  = infos.nom;
       scrutin.ventilation = vote;
+      // loi.theme           = infos.theme;
+      // loi.nomAlt          = infos.nomAlt;
       saveLoiAndScrutin(loi, scrutin);
     });
   });
