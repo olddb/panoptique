@@ -1,6 +1,6 @@
 const mongoose    = require('mongoose');
 const removeDiacritics = require('diacritics').remove;
-const dbConf			= require('../config/db');
+const dbConf			= require('../config/db.model');
 var ScrutinScrap  = require('./scrutinScrap.model.js');
 var DeputeScrap   = require('./deputeScrap.model.js');
 var DeputeReg     = require('./deputeReg.model.js');
@@ -73,7 +73,7 @@ function emptyDeps() {
 }
 
 function completeDepute(x, i) {
-  var query = {compare : removeDiacritics(x.nom.replace('-', ' ')) };
+  var query = {compare : removeDiacritics(x.nom.replace('-', ' ').replace("  (par délégation)", "")) };
   query.compare = query.compare.includes('Genevieve Gosselin') ? 'Genevieve Gosselin Fleury' : query.compare;
   DeputeReg.findOne(query, function(err, obj){
     if (err) { console.log('err with ' + x.nom + ' ' + err);  return; }
@@ -87,7 +87,7 @@ function completeDepute(x, i) {
 
     var dep = {
       idAss: idDep,
-      nom : x.nom.replace('\u00e9', 'e'),
+      nom : x.nom.replace('\u00e9', 'e').replace("  (par délégation)", ""),
       lienNosDeputees : lienDep,
       groupe : x.groupe,
       tauxDePresence : presenD || 0,
